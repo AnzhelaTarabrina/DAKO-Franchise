@@ -314,6 +314,11 @@
     left: 0;
     transform: translateY(-50%);
 
+    @media only screen and (max-width: 1480px) {
+      font-size: 70px;
+      line-height: 62px;
+    }
+
     @media only screen and (max-width: 1247px) {
       font-size: 60px;
       line-height: 50px;
@@ -342,8 +347,7 @@
     width: calc(66.66666% + 13px);
     margin-left: auto;
     margin-right: -20px;
-    min-height: 500px;
-    height: calc(100vh - 140px);
+    padding-bottom: 37.997%;
 
     video,
     iframe {
@@ -352,14 +356,11 @@
       height: 100%;
       top: 0;
       left: 0;
-      object-fit: cover;
     }
 
     @media only screen and (max-width: 1247px) {
       width: 66%;
-      padding-bottom: 44%;
-      min-height: auto;
-      height: auto;
+      padding-bottom: 37.2%;
       margin-right: 0;
     }
 
@@ -367,7 +368,15 @@
       width: auto;
       margin-left: -10px;
       margin-right: -10px;
-      padding-bottom: 65%;
+      padding-bottom: 58.2%;
+    }
+
+    @media only screen and (max-width: 540px) {
+      padding-bottom: 59%;
+    }
+
+    @media only screen and (max-width: 360px) {
+      padding-bottom: 60%;
     }
   }
 }
