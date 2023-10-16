@@ -79,3 +79,62 @@ $btnsLists.forEach($btnsList => {
     });
   });
 });
+
+// Actions (делегирование события click)
+document.addEventListener("click", documentActions);
+function documentActions(e) {
+    const targetElement = e.target;
+    if (targetElement.classList.contains('js-open-popup-agreement')) {
+      document.querySelector('.popup-agreement').classList.toggle('popup-agreement--visible');
+      e.preventDefault();
+    } else if (targetElement.classList.contains('popup-agreement') && document.querySelector('.popup-agreement.popup-agreement--visible')) {
+      document.querySelector('.popup-agreement').classList.remove('popup-agreement--visible');
+    }
+    if (targetElement.classList.contains('popup__close')) {
+      document.querySelector('.popup-agreement').classList.remove('popup-agreement--visible');
+    } 
+}
+
+// popup-main
+let closeTimer;
+const $popups = document.querySelectorAll('.popup-main');
+$popups.forEach($popup => {
+  $popup.addEventListener('click', e => {
+    if (e.target === $popup) {
+      close($popup);
+    }
+
+    if (e.target.classList.contains('popup-main__btn')) {
+      close($popup);
+    }
+
+    if (e.target.classList.contains('js-close-popup-main')) {
+      close($popup);
+    }
+  });
+});
+
+const $openBtns = document.querySelectorAll('.js-open-popup-main');
+$openBtns.forEach($btn => {
+  const name = $btn.dataset.popupName;
+  $btn.addEventListener('click', () => {
+    const $popup = document.querySelector(`.popup-main[data-popup-name="${name}"]`);
+    open($popup);
+  });
+});
+
+function open($popup) {
+  $popup?.classList.add('popup-main--show');
+  document.body.classList.add('popup-lock');
+
+  const delay = +$popup.dataset.closeDelay;
+  if (delay) {
+    setTimeout(() => close($popup), delay);
+  }
+}
+
+function close($popup) {
+  $popup?.classList.remove('popup-main--show');
+  document.body.classList.remove('popup-lock');
+  clearInterval(closeTimer);
+}
