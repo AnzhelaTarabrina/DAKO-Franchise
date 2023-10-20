@@ -442,11 +442,6 @@
 .promo10__content:last-child {
   background: #E41B18;
 }
-@media only screen and (max-width: 1023px) {
-  .promo10__content:last-child {
-    background: #748693;
-  }
-}
 @media only screen and (max-width: 767px) {
   .promo10__content {
     padding: 35px 20px;
@@ -837,7 +832,40 @@
 }
 @media only screen and (max-width: 830px) {
   .steps-frch__item-link {
+    padding: 9px 10px 9px 12px;
+    font-size: 12px;
+  }
+  .steps-frch__item-link .img-steps-frch-05 {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .steps-frch__item-link {
     display: none;
+  }
+}
+.steps-frch__item-link-mobile {
+  display: none;
+}
+@media only screen and (max-width: 520px) {
+  .steps-frch__item-link-mobile {
+    margin-top: 17px;
+    margin-bottom: 5px;
+    padding: 8px 15px 8px 15px;
+    display: block;
+    color: #000;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    border: 2px solid #E41B18;
+    border-radius: 600px;
+  }
+  .steps-frch__item-link-mobile .img-steps-frch-05 {
+    margin-top: 2px;
+    width: 12px;
+    height: 12px;
   }
 }
 
@@ -870,11 +898,6 @@
 @media only screen and (max-width: 767px) {
   .team-frch__list-col {
     padding: 0;
-  }
-}
-@media only screen and (max-width: 639px) {
-  .team-frch__list-col:nth-child(n+5) {
-    display: none;
   }
 }
 .team-frch__title {
